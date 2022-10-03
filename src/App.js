@@ -1,12 +1,15 @@
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {ReactComponent as ReacticonAudio} from './assets/svg/iconAudio.svg'
-import {ReactComponent as ReacticonRock} from './assets/svg/iconRock.svg'
-import {ReactComponent as ReacticonPaper} from './assets/svg/iconPaper.svg'
-import {ReactComponent as ReacticonScissors} from './assets/svg/iconScissors.svg'
-import {ReactComponent as ReactnumberTwo} from './assets/svg/numberTwo.svg'
+import Game from './pages/game';
+import Home from './pages/home';
 
 function App() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  // const isFemale = true
+  // let name = isFemale ? 'Virginia' : 'Paul'
+  // name === "Virginia"
   return (
     <div className="body">
       <nav style={{width:"100%",minHeight:"70px",backgroundColor:"#474747"}}>
@@ -15,21 +18,11 @@ function App() {
           <div> <ReacticonAudio style={{width:"65px",height:"65px",marginRight:"25px"}} /></div>
         </div>
       </nav>
-      <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
-        <div className='iconsContainer'>
-          <div><ReacticonRock className='icons'/></div>
-          <div><ReacticonPaper className='icons'/></div>
-          <div><ReacticonScissors className='icons'/></div>
-        </div>
-        <div className='iconsContainer'>
-          <div className='number'> <ReactnumberTwo/></div>
-        </div>
-        <div className='iconsContainer'>
-          <div> <ReacticonRock className='icons'/></div>
-          <div><ReacticonPaper className='icons'/></div>
-          <div><ReacticonScissors className='icons'/></div>
-        </div>
-      </div>
+      {isPlaying ? //if
+        <Game />
+      : //else
+        <Home setIsPlaying={setIsPlaying} />
+      }
     </div>
   );
 }

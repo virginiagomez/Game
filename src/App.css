@@ -27,8 +27,8 @@
   margin:25px;
 }
 .number{
-  width:45px;
-  height:45px;
+  font-size: 84px;
+  color: white;
   display: flex;
   justify-content:center;
   padding: 20px;
