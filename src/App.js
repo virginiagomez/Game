@@ -4,7 +4,6 @@ import {ReactComponent as ReacticonAudio} from './assets/svg/iconAudio.svg'
 import {ReactComponent as ReacticonRock} from './assets/svg/iconRock.svg'
 import {ReactComponent as ReacticonPaper} from './assets/svg/iconPaper.svg'
 import {ReactComponent as ReacticonScissors} from './assets/svg/iconScissors.svg'
-import {ReactComponent as ReactnumberTwo} from './assets/svg/numberTwo.svg'
 
 function App() {
   return (
@@ -22,7 +21,7 @@ function App() {
           <div><ReacticonScissors className='icons'/></div>
         </div>
         <div className='iconsContainer'>
-          <div className='number'> <ReactnumberTwo/></div>
+          <div className='number'>2</div>
         </div>
         <div className='iconsContainer'>
           <div> <ReacticonRock className='icons'/></div>
