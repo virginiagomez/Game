@@ -5,6 +5,7 @@ import {ReactComponent as ReacticonAudio} from './assets/svg/iconAudio.svg'
 import Game from './pages/game';
 import Home from './pages/home';
 
+
 function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   // const isFemale = true
@@ -19,7 +20,7 @@ function App() {
         </div>
       </nav>
       {isPlaying ? //if
-        <Game />
+        <Game/>
       : //else
         <Home setIsPlaying={setIsPlaying} />
       }
