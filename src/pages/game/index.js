@@ -4,6 +4,7 @@ import {ReactComponent as ReacticonPaper} from '../../assets/svg/iconPaper.svg'
 import {ReactComponent as ReacticonScissors} from '../../assets/svg/iconScissors.svg'
 import Youwin from "../youwin";
 
+
 const gameOptions = [
   {
     name: 'Rock',
@@ -26,6 +27,14 @@ const Game = (props) => {
   const [isFinished, setIsFinished] = useState(false);
   const [userSelection, setUserSelection] = useState(null);
 
+  function playAgain(){
+    if(counter < 0){
+      setCounter (3)
+      setIsFinished (false)
+      setUserSelection (null)
+    }
+  }
+
   useEffect(()=>{
     if(counter < 0) return (setIsFinished (true))
     //disminuye un segundo al contador
@@ -44,6 +53,7 @@ const Game = (props) => {
   return isFinished ? 
     <Youwin 
     userSelection={userSelection} 
+    playAgain={playAgain}
     />
     
     :
