@@ -21,6 +21,7 @@ const gameOptions = [
 
 const Game = (props) => {
 
+
   const [counter, setCounter] = useState(3);
   const [isFinished, setIsFinished] = useState(false);
   const [userSelection, setUserSelection] = useState(null);
@@ -41,7 +42,10 @@ const Game = (props) => {
   }
 
   return isFinished ? 
-    <Youwin />
+    <Youwin 
+    userSelection={userSelection} 
+    />
+    
     :
     <div style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
     <div className='iconsContainer'>
@@ -68,11 +72,11 @@ const Game = (props) => {
             key={`option_${option.id}`}
           >
             {option.id === 'rock' ? 
-              <ReacticonRock style={{border: userSelection === option.id ? '8px solid green':''}} className='icons'/>
+              <ReacticonRock style={{boxShadow: userSelection === option.id ? '6px 6px 48px green':''}} className='icons'/>
               : option.id === 'scissors' ? 
-              <ReacticonScissors style={{border: userSelection === option.id ? '8px solid green':''}} className='icons'/>
+              <ReacticonScissors style={{boxShadow: userSelection === option.id ? '6px 6px 48px green':''}} className='icons'/>
               : 
-              <ReacticonPaper style={{border: userSelection === option.id ? '8px solid green':''}} className='icons'/>
+              <ReacticonPaper style={{boxShadow: userSelection === option.id ? '6px 6px 48px green':''}} className='icons'/>
             }
           </div>
         )
