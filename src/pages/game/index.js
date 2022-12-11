@@ -3,6 +3,8 @@ import {ReactComponent as ReacticonRock} from '../../assets/svg/iconRock.svg'
 import {ReactComponent as ReacticonPaper} from '../../assets/svg/iconPaper.svg'
 import {ReactComponent as ReacticonScissors} from '../../assets/svg/iconScissors.svg'
 import Youwin from "../youwin";
+import { getRandomArbitrary } from "../../utils/functions";
+
 
 
 const gameOptions = [
@@ -19,13 +21,14 @@ const gameOptions = [
     id: 'scissors'
   },
 ]
-
+// console.log(gameOptions[1].name)
 const Game = (props) => {
 
 
   const [counter, setCounter] = useState(3);
   const [isFinished, setIsFinished] = useState(false);
   const [userSelection, setUserSelection] = useState(null);
+  const [computerSelection, setComputerSelection] = useState(null);
 
   function playAgain(){
     if(counter < 0){
@@ -36,7 +39,11 @@ const Game = (props) => {
   }
 
   useEffect(()=>{
-    if(counter < 0) return (setIsFinished (true))
+    if(counter < 0) {
+      const randomNumber = getRandomArbitrary(0,3)
+      setComputerSelection(gameOptions[randomNumber].id)
+      return (setIsFinished (true))
+    }
     //disminuye un segundo al contador
     const interval = setInterval(() => {
       setCounter(prev => prev = prev - 1)
@@ -54,6 +61,7 @@ const Game = (props) => {
     <Youwin 
     userSelection={userSelection} 
     playAgain={playAgain}
+    computerSelection={computerSelection}
     />
     
     :
