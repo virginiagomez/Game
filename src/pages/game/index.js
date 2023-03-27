@@ -32,7 +32,7 @@ const Game = (props) => {
 
   function playAgain(){
     if(counter < 0){
-      setCounter (3)
+      setCounter (3);
       setIsFinished (false)
       setUserSelection (null)
     }
